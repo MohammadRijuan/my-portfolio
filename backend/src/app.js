@@ -9,6 +9,8 @@ const { notify } = require('./mail');
 const app = express();
 app.disable('x-powered-by');
 
+
+// ok changes here made
 app.use(
   cors({
     origin: process.env.FRONTEND_URL
