@@ -1,0 +1,214 @@
+{
+  "settings": {
+    "logo_text": "Rijuan",
+    "badge": "Hello, I'm",
+    "name_main": "MD RIJUAN",
+    "name_accent": "MONJU",
+    "role": "Full-Stack Developer",
+    "tagline": "I build modern web applications with clean code, better performance and real-world impact.",
+    "cv_url": "",
+    "about_text": "I'm a passionate developer from Chattogram, Bangladesh. Currently pursuing my BA (Hons) at National University (4th year). I love solving problems, learning new technologies, and building scalable web applications.",
+    "facts": [
+      {
+        "icon": "edu",
+        "title": "BA (Hons)",
+        "sub": "National University"
+      },
+      {
+        "icon": "pin",
+        "title": "Chattogram",
+        "sub": "Bangladesh"
+      },
+      {
+        "icon": "book",
+        "title": "Learner",
+        "sub": "Always"
+      }
+    ],
+    "services": [
+      {
+        "icon": "monitor",
+        "title": "Frontend",
+        "text": "Responsive, animated interfaces with React, Next.js and Tailwind CSS."
+      },
+      {
+        "icon": "server",
+        "title": "Backend",
+        "text": "REST APIs and server logic with Node.js, Express and Django."
+      },
+      {
+        "icon": "db",
+        "title": "Databases",
+        "text": "Schema design and queries on PostgreSQL, MongoDB and Firebase."
+      }
+    ],
+    "code_name": "Rijuan",
+    "code_passion": "Build & Solve",
+    "code_location": "Chattogram, BD",
+    "code_footer": "Always learning ...",
+    "contact_text": "Have a project in mind or just want to say hi? Send me a message and I'll get back to you.",
+    "contact_email": "mohammadrijuan2529@gmail.com",
+    "socials": [
+      {
+        "icon": "github",
+        "label": "GitHub",
+        "url": ""
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "url": ""
+      },
+      {
+        "icon": "facebook",
+        "label": "Facebook",
+        "url": ""
+      }
+    ],
+    "contact_whatsapp": "",
+    "profile_image": "",
+    "certifications": [],
+    "hero_links": [
+      {
+        "icon": "github",
+        "label": "GitHub",
+        "url": ""
+      },
+      {
+        "icon": "linkedin",
+        "label": "LinkedIn",
+        "url": ""
+      },
+      {
+        "icon": "mail",
+        "label": "Contact",
+        "url": "#contact"
+      }
+    ],
+    "cta_label": "View Projects",
+    "cv_label": "Download CV",
+    "theme_preset": "emerald-night",
+    "brand_preset": "emerald",
+    "brand_a": "#34e89c",
+    "brand_b": "#14b8a6",
+    "default_mode": "dark",
+    "site_title": "MD Rijuan Monju — Full-Stack Developer",
+    "site_description": "Portfolio of MD Rijuan Monju, full-stack developer from Chattogram, Bangladesh.",
+    "hidden_pages": "",
+    "cv_name": ""
+  },
+  "projects": [
+    {
+      "title": "LeafLight",
+      "subtitle": "Book Sharing Platform",
+      "description": "A community platform where readers list, lend and swap books with a clean, fast UI.",
+      "tags": [
+        "React",
+        "Firebase",
+        "DaisyUI"
+      ],
+      "icon": "leaf",
+      "live_url": "",
+      "repo_url": "",
+      "image_url": "",
+      "featured": true
+    },
+    {
+      "title": "KachaBazaar",
+      "subtitle": "E-commerce Platform",
+      "description": "Online grocery marketplace with cart, checkout and realtime data.",
+      "tags": [
+        "React",
+        "Firebase",
+        "React Query"
+      ],
+      "icon": "cart",
+      "live_url": "",
+      "repo_url": "",
+      "image_url": "",
+      "featured": true
+    },
+    {
+      "title": "TourEase",
+      "subtitle": "Travel & Tour Booking",
+      "description": "Discover destinations, compare packages and book tours in a few clicks.",
+      "tags": [
+        "React",
+        "API",
+        "SweetAlert2"
+      ],
+      "icon": "pin",
+      "live_url": "",
+      "repo_url": "",
+      "image_url": "",
+      "featured": true
+    }
+  ],
+  "skills": [
+    {
+      "name": "C / C++",
+      "level": 80,
+      "category": "Languages"
+    },
+    {
+      "name": "Python",
+      "level": 85,
+      "category": "Languages"
+    },
+    {
+      "name": "JavaScript",
+      "level": 90,
+      "category": "Languages"
+    },
+    {
+      "name": "TypeScript",
+      "level": 80,
+      "category": "Languages"
+    },
+    {
+      "name": "React",
+      "level": 90,
+      "category": "Frontend"
+    },
+    {
+      "name": "Next.js",
+      "level": 85,
+      "category": "Frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "level": 90,
+      "category": "Frontend"
+    },
+    {
+      "name": "Node.js",
+      "level": 85,
+      "category": "Backend"
+    },
+    {
+      "name": "Express",
+      "level": 85,
+      "category": "Backend"
+    },
+    {
+      "name": "Django",
+      "level": 75,
+      "category": "Backend"
+    },
+    {
+      "name": "PostgreSQL",
+      "level": 80,
+      "category": "Databases"
+    },
+    {
+      "name": "MongoDB",
+      "level": 78,
+      "category": "Databases"
+    },
+    {
+      "name": "Firebase",
+      "level": 80,
+      "category": "Databases"
+    }
+  ]
+}
