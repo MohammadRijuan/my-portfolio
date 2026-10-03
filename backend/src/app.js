@@ -10,14 +10,27 @@ const app = express();
 app.disable('x-powered-by');
 
 
-// ok changes here made
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://rijuan-monju.vercel.app',
+];
+
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL
-      ? process.env.FRONTEND_URL
-          .split(',')
-          .map((s) => s.trim())
-      : true,
+    origin: (origin, callback) => {
+      // Allow requests without an Origin header
+      // (Postman, server-to-server, etc.)
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error(`CORS blocked: ${origin}`));
+    },
     credentials: true,
   })
 );
