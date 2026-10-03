@@ -8,7 +8,18 @@ const { notify } = require('./mail');
 
 const app = express();
 app.disable('x-powered-by');
-app.use(cors({ origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',').map((s) => s.trim()) : true }));
+
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL
+      ? process.env.FRONTEND_URL
+          .split(',')
+          .map((s) => s.trim())
+      : true,
+    credentials: true,
+  })
+);
+
 app.use(express.json({ limit: '300kb' }));
 app.use((req, res, next) => {
   res.set({ 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'Referrer-Policy': 'no-referrer', 'X-Robots-Tag': 'noindex' });
