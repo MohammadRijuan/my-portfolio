@@ -5,7 +5,7 @@ export type Project = { id: number; title: string; subtitle: string; description
 export type Experience = { id: number; company: string; logo_url: string; role: string; emp_type: string; location: string; work_mode: string; start_date: string; end_date: string; current: boolean; description: string; tech: string[]; url: string };
 export type Skill = { id: number; name: string; level: number; category: string };
 
-export const API = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000').replace(/\/+$/, '');
+export const API = (process.env.NEXT_PUBLIC_API_URL || 'https://rijuan-server.vercel.app').replace(/\/+$/, '');
 export const defaultSettings: Settings = defaults.settings;
 export const fallbackProjects: Project[] = defaults.projects.map((p, i) => ({ ...p, id: i + 1 }));
 export const fallbackSkills: Skill[] = defaults.skills.map((s, i) => ({ ...s, id: i + 1 }));
