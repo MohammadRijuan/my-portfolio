@@ -33,8 +33,8 @@ export default function Contact() {
   const cta = 'btn-shine group flex items-center gap-3 px-7 py-3 rounded-full font-medium text-black bg-gradient-to-r from-accent to-accent2 hover:scale-105 transition disabled:opacity-60 disabled:hover:scale-100';
   const socials = s.socials.filter((x) => x.url);
   const wa = s.contact_whatsapp.replace(/\D/g, '');
-  const row = 'group flex items-center gap-4 p-4 rounded-xl border border-accent/20 bg-white/[.02] hover:border-accent hover:bg-accent/5 hover:translate-x-1 transition';
-  const badge = 'w-11 h-11 rounded-full bg-accent/15 text-accent grid place-items-center group-hover:scale-110 group-hover:bg-accent group-hover:text-black transition';
+  const row = 'group flex items-center gap-2.5 p-3 rounded-xl border border-accent/20 bg-white/[.02] hover:border-accent hover:bg-accent/5 hover:translate-x-1 transition';
+  const badge = 'w-8 h-8 rounded-full bg-accent/15 text-accent grid place-items-center group-hover:scale-110 group-hover:bg-accent group-hover:text-black transition';
 
   return (
     <ScrollPage>
@@ -43,7 +43,7 @@ export default function Contact() {
         <TiltCard d={1} className="p-6 sm:p-8" max={4}>
           <p className="leading-7 text-fg/85">{s.contact_text}</p>
           <div className="mt-6 space-y-3">
-            {s.contact_email && <a href={`mailto:${s.contact_email}`} className={row}><span className={badge}><Mail size={20} /></span><span className="min-w-0"><span className="block text-xs text-mute">Gmail</span><span className="block truncate">{s.contact_email}</span></span></a>}
+            {s.contact_email && <a href={`mailto:${s.contact_email}`} className={row}><span className={badge}><Mail size={20} /></span><span className="min-w-0"><span className="block text-xs text-mute">Gmail</span><span className="block break-all">{s.contact_email}</span></span></a>}
             {wa && <a href={`https://wa.me/${wa}`} target="_blank" rel="noreferrer" className={row}><span className={badge}><MessageCircle size={20} /></span><span><span className="block text-xs text-mute">WhatsApp</span><span className="block">{s.contact_whatsapp}</span></span></a>}
           </div>
           {socials.length > 0 && <div className="mt-6 flex gap-3">{socials.map((x) => (

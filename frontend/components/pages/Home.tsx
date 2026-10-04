@@ -71,7 +71,7 @@ export default function Home() {
             <div className="mt-5 grid sm:grid-cols-3 gap-4">
               {shown.map((p) => (
                 <TiltCard key={p.id} max={14} className="!rounded-xl overflow-hidden cursor-pointer group" onClick={() => go('projects')}>
-                  <div className="relative h-20 bg-gradient-to-br from-accent/25 to-transparent flex items-center px-5 overflow-hidden">
+                  <div className="relative h-48 md:h-36 lg:h-24 bg-gradient-to-br from-accent/25 to-transparent flex items-center px-5 overflow-hidden">
                     {p.image_url ? <img src={img(p.image_url)} alt="" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-700" /> : <Icon name={p.icon} size={34} className="text-accent group-hover:scale-125 group-hover:-rotate-6 transition duration-500" />}
                   </div>
                   <div className="p-4">

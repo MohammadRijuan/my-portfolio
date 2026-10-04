@@ -60,7 +60,7 @@ export default function About() {
       {certs.length > 0 && (
         <TiltCard d={1} data-step className="mt-8 p-6 sm:p-10" max={2}>
           <h3 className="text-2xl font-semibold">Certifications</h3>
-          <div className="mt-6 grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-6 sm:gap-6">
             {certs.map((c, k) => (
               <button key={k} onClick={() => setLb({ list: certItems, i: k })} className="group text-left">
                 <span className="relative block aspect-[4/3] overflow-hidden rounded-xl border border-accent/25 group-hover:border-accent group-hover:shadow-[0_0_30px_rgb(var(--accent)/.35)] transition">
