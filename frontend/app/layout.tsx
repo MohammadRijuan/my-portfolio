@@ -20,12 +20,16 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-<html lang="en" suppressHydrationWarning data-build="2026-10-06">
-      <head><script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} /></head>
-      <body
-        className={`${inter.variable} ${mono.variable} antialiased`}
-        style={{ fontFamily: 'var(--font-inter), sans-serif' }}
-      >
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-build="2026-10-06"
+      className={`${inter.variable} ${mono.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} />
+      </head>
+      <body className="font-sans antialiased">
         <Background />
         <DataProvider><SiteShell>{children}</SiteShell></DataProvider>
       </body>
