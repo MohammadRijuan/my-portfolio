@@ -28,7 +28,7 @@ body {
   background: rgb(var(--bg));
   color: rgb(var(--fg));
   -webkit-tap-highlight-color: transparent;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-inter), sans-serif; /* here is the font */
 }
 ::selection {
   background: rgb(var(--accent) / 0.35);
