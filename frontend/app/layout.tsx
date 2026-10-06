@@ -20,7 +20,7 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-font="inter">
       <head><script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} /></head>
       <body
         className={`${inter.variable} ${mono.variable} antialiased`}
