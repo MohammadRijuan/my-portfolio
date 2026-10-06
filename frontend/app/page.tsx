@@ -1,20 +1,9 @@
-import Pager from '@/components/Pager';
-import Home from '@/components/pages/Home';
-import About from '@/components/pages/About';
-import Projects from '@/components/pages/Projects';
-import Skills from '@/components/pages/Skills';
-import Experience from '@/components/pages/Experience';
-import Contact from '@/components/pages/Contact';
+import { redirect } from 'next/navigation';
 
-export default function Page() {
-  return (
-    <Pager pages={[
-      { id: 'home', label: 'Home', node: <Home /> },
-      { id: 'about', label: 'About', node: <About /> },
-      { id: 'projects', label: 'Projects', node: <Projects /> },
-      { id: 'skills', label: 'Skills', node: <Skills /> },
-      { id: 'experience', label: 'Experience', node: <Experience /> },
-      { id: 'contact', label: 'Contact', node: <Contact /> },
-    ]} />
-  );
+// Rendered on request so the redirect is a real HTTP redirect (not a client-side one).
+export const dynamic = 'force-dynamic';
+
+/** "/" has no content of its own — it opens the first page. */
+export default function Index() {
+  redirect('/home');
 }

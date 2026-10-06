@@ -1,0 +1,120 @@
+// Prisma schema = a description of the database tables the API uses (Neon Postgres).
+//
+// IMPORTANT: this file was written to match the tables that already exist in your database,
+// column for column. Do NOT run `prisma migrate` or `prisma db push` against your live database.
+// The only commands you need are `npm install` (it runs `prisma generate` for you) and `npm run dev`.
+// Field names are kept identical to the column names (snake_case) so the JSON the API returns
+// is exactly the same as before.
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "client" // no native engine binary: queries run through the pg driver adapter (see src/database/prisma.ts)
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Portfolio projects (Projects page + featured cards on Home)
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  subtitle    String?   @default("")
+  description String?   @default("")
+  tags        String[]  @default([])
+  live_url    String?   @default("")
+  repo_url    String?   @default("")
+  image_url   String?   @default("")
+  icon        String?   @default("code")
+  featured    Boolean?  @default(true)
+  position    Int?      @default(0)
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@map("projects")
+}
+
+/// Skills (Skills page + Home marquee)
+model Skill {
+  id       Int     @id @default(autoincrement())
+  name     String
+  level    Int?    @default(80)
+  category String? @default("Other")
+
+  @@map("skills")
+}
+
+/// Work experience (Experience page)
+model Experience {
+  id          Int       @id @default(autoincrement())
+  company     String
+  logo_url    String?   @default("")
+  role        String
+  emp_type    String?   @default("Full-time")
+  location    String?   @default("")
+  work_mode   String?   @default("")
+  start_date  String?   @default("")
+  end_date    String?   @default("")
+  current     Boolean?  @default(false)
+  description String?   @default("")
+  tech        String[]  @default([])
+  url         String?   @default("")
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@map("experiences")
+}
+
+/// Contact-form messages (CMS "Messages")
+model Message {
+  id         Int       @id @default(autoincrement())
+  name       String?
+  email      String?
+  message    String?
+  read       Boolean?  @default(false)
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  notified   Boolean?  @default(false)
+  ip         String?
+
+  @@map("messages")
+}
+
+/// Uploaded images and the CV PDF (stored in the database, served from /api/media/:id)
+model Media {
+  id         Int       @id @default(autoincrement())
+  mime       String
+  data       Bytes
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  name       String?
+
+  @@map("media")
+}
+
+/// Site content + theme: a single row with key "site" holding all CMS settings as JSON
+model Setting {
+  key   String @id
+  value Json
+
+  @@map("settings")
+}
+
+/// Wrong-password attempts per IP (admin login lock)
+model LoginAttempt {
+  id         Int       @id @default(autoincrement())
+  ip         String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@map("login_attempts")
+}
+
+/// Email verification codes (table exists but the current contact form does not use it)
+model EmailOtp {
+  id         Int       @id @default(autoincrement())
+  email      String
+  code_hash  String
+  attempts   Int?      @default(0)
+  ip         String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  expires_at DateTime  @db.Timestamptz(6)
+
+  @@map("email_otps")
+}

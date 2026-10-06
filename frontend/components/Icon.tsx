@@ -5,6 +5,6 @@ export const icons: Record<string, LucideIcon> = {
   mail: Mail, globe: Globe, rocket: Rocket, sparkles: Sparkles, leaf: Leaf, cart: ShoppingCart, whatsapp: MessageCircle, phone: Phone,
 };
 export default function Icon({ name, size = 24, className = '' }: { name: string; size?: number; className?: string }) {
-  const I = icons[name] || Code2;
-  return <I size={size} className={className} />;
+  const IconComponent = icons[name] || Code2;
+  return <IconComponent size={size} className={className} />;
 }
