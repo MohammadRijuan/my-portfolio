@@ -6,8 +6,9 @@ import Background from '@/components/Background';
 import DataProvider from '@/components/DataProvider';
 import SiteShell from '@/components/SiteShell';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+// `fallback` = what the browser shows if the font file is slow or missing (a plain sans-serif, never Times New Roman).
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', fallback: ['system-ui', 'Arial', 'sans-serif'] });
+const mono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', fallback: ['ui-monospace', 'Consolas', 'monospace'] });
 export async function generateMetadata(): Promise<Metadata> {
   let title = 'MD Rijuan Monju — Full-Stack Developer', description = 'Portfolio of MD Rijuan Monju, full-stack developer from Chattogram, Bangladesh.';
   try {
@@ -19,9 +20,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#030c0b' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // The font variables live on <html> (not <body>) so that EVERY element, including <html> itself, can resolve var(--font-inter).
+  // Two layers keep the font from ever falling back to the browser's default (Times New Roman):
+  //  1. className: the font variables live on <html> so every element can resolve var(--font-inter) / var(--font-mono).
+  //  2. style:     the real font-family is also written straight onto <html> (Inter, then system sans-serif).
+  //                Every element inherits it, even if a CSS variable or Tailwind class ever fails to apply.
   return (
-    <html lang="en" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`} style={{ fontFamily: inter.style.fontFamily }} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} /></head>
       <body className="font-sans antialiased">
         <Background />
