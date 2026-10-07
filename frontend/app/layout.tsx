@@ -13,22 +13,16 @@ export async function generateMetadata(): Promise<Metadata> {
   try {
     const siteResponse = await (await fetch(`${API_URL}/api/site`, { next: { revalidate: 60 } })).json();
     title = siteResponse.settings?.site_title || title; description = siteResponse.settings?.site_description || description;
-  } catch { }
+  } catch {}
   return { title, description };
 }
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#030c0b' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // The font variables live on <html> (not <body>) so that EVERY element, including <html> itself, can resolve var(--font-inter).
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      data-build="2026-10-06"
-      className={`${inter.variable} ${mono.variable}`}
-    >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} />
-      </head>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: "try{var c=localStorage.getItem('themeCss');if(c){var s=document.createElement('style');s.id='theme-css';s.textContent=c;document.head.appendChild(s)}var m=localStorage.getItem('theme');if(m==='light'||(!m&&localStorage.getItem('defaultMode')==='light'))document.documentElement.classList.add('light')}catch(e){}" }} /></head>
       <body className="font-sans antialiased">
         <Background />
         <DataProvider><SiteShell>{children}</SiteShell></DataProvider>
