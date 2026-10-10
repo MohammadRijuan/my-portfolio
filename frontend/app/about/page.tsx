@@ -6,6 +6,9 @@
  * Shared building blocks are imported from @/components, data from @/lib.
  * The URL /about comes from this folder name; the 3D slide between pages is done by <SiteShell> (see components/SiteShell.tsx).
  */
+
+// everything is working
+
 import { useState } from 'react';
 import { ZoomIn } from 'lucide-react';
 import ScrollPage from '@/components/ScrollPage';
